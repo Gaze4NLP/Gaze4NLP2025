@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speakers - Gaze4NLP2025 Workshop</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            position: relative;
+        }
+        .banner {
+    background-image: url('images/varna5.jpg'); /* Replace with your actual JPG image path */
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}     
+.banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }    
+        
+        .banner-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        nav ul li a.active {
+            color: var(--accent-color);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .page-header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #777;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .highlight {
+            color: var(--accent-color);
+        }
+        
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .speaker-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .speaker-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .speaker-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .speaker-type {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .speaker-info {
+            padding: 1.5rem;
+        }
+        
+        .speaker-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .speaker-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .speaker-affiliation {
+            color: #777;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .speaker-bio {
+            margin-bottom: 1.5rem;
+        }
+        
+        .speaker-talk {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .speaker-talk h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 1rem 2rem;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin: 0.5rem;
+            border-radius: 5px;
+        }
+        
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #455565;
+            margin-top: 2rem;
+            color: #bbb;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav ul li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            
+            .speakers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Gaze4<span>NLP</span>2025</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="call-for-papers.html">Call for Papers</a></li>
+                    <li><a href="schedule.html">Schedule</a></li>
+                    <li><a href="speakers.html" class="active">Speakers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="banner-content">
+            <h1>Keynote Speakers</h1>
+            <p>Leading experts in eye-tracking and NLP research</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Speakers</h2>
+                <p>Meet the brilliant minds that will be sharing their insights at Gaze4NLP 2025</p>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-btn active">Keynote Speakers</button>
+                <button class="tab-btn">Invited Speakers</button>
+                <button class="tab-btn">Panel Members</button>
+            </div>
+            
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <div class="speaker-image" style="background-image: url('/api/placeholder/350/250');">
+                        <div class="speaker-type">Keynote</div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Prof. Emily Watson</h3>
+                        <p class="speaker-title">Professor of Cognitive Science</p>
+                        <p class="speaker-affiliation">Stanford University, USA</p>
+                        <p class="speaker-bio">Prof. Watson is a pioneer in the field of eye-tracking research for language processing. Her work has significantly contributed to our understanding of how humans read and comprehend text, with over 150 publications in top-tier journals. She currently leads the Cognitive Language Processing Lab at Stanford University.</p>
+                        <div class="social-links">
+                            <a href="#">Website</a> | 
+                            <a href="#">Twitter</a> | 
+                            <a href="#">LinkedIn</a>
+                        </div>
+                        <div class="speaker-talk">
+                            <h4>Eye Movements as a Window into Language Processing: Past, Present, and Future</h4>
+                            <p>This talk will explore the rich history of using eye movements to study language comprehension and how current advances in NLP can benefit from eye-tracking methodologies, with special attention to recent advances in multimodal learning.</p>
+                            <p><strong>Day 1</strong> | May 10, 2025 | 09:30 - 10:30</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="speaker-card">
+                    <div class="speaker-image" style="background-image: url('/api/placeholder/350/250');">
+                        <div class="speaker-type">Keynote</div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. James Chen</h3>
+                        <p class="speaker-title">Principal Research Scientist</p>
+                        <p class="speaker-affiliation">AI Research Institute, Canada</p>
+                        <p class="speaker-bio">Dr. Chen's research focuses on integrating cognitive signals, particularly eye-tracking data, into neural language models. His groundbreaking work on attention mechanisms inspired by human reading patterns has led to significant improvements in language understanding tasks. Prior to joining the AI Research Institute, he was a senior researcher at Google Brain.</p>
+                        <div class="social-links">
+                            <a href="#">Website</a> | 
+                            <a href="#">Twitter</a> | 
+                            <a href="#">Google Scholar</a>
+                        </div>
+                        <div class="speaker-talk">
+                            <h4>Bridging Human and Machine Attention: Lessons from Eye-Tracking for Large Language Models</h4>
+                            <p>This keynote will discuss how insights from human visual attention during reading can inform the development of more interpretable and human-like attention mechanisms in large language models, with practical demonstrations and future research directions.</p>
+                            <p><strong>Day 2</strong> | May 11, 2025 | 09:30 - 10:30</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="speaker-card">
+                    <div class="speaker-image" style="background-image: url('/api/placeholder/350/250');">
+                        <div class="speaker-type">Keynote</div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Prof. Maria Rodriguez</h3>
+                        <p class="speaker-title">Director, Human-Computer Interaction Lab</p>
+                        <p class="speaker-affiliation">Technical University of Berlin, Germany</p>
+                        <p class="speaker-bio">Prof. Rodriguez is an internationally recognized expert in multimodal interaction, with a focus on eye-tracking applications in adaptive interfaces. Her research combines eye movement analysis with natural language processing to create responsive systems that adapt to users' cognitive states and needs. She has received numerous awards for her contributions to accessible technology.</p>
+                        <div class="social-links">
+                            <a href="#">Website</a> | 
+                            <a href="#">Twitter</a> | 
+                            <a href="#">ResearchGate</a>
+                        </div>
+                        <div class="speaker-talk">
+                            <h4>Gaze-Aware Interfaces: Personalizing Language Technologies through Eye-Tracking</h4>
+                            <p>This talk will explore how eye-tracking can enable more personalized and adaptive language technologies, from reading assistants to communication aids for people with disabilities, highlighting recent advances and ethical considerations in this rapidly evolving field.</p>
+                            <p><strong>Day 3</strong> | May 12, 2025 | 09:30 - 10:30</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="speaker-card">
+                    <div class="speaker-image" style="background-image: url('/api/placeholder/350/250');">
+                        <div class="speaker-type">Invited Speaker</div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. Thomas Lee</h3>
+                        <p class="speaker-title">Lead Research Engineer</p>
+                        <p class="speaker-affiliation">Language Technologies Inc., USA</p>
+                        <p class="speaker-bio">With a background in both computational linguistics and cognitive psychology, Dr. Lee has been instrumental in developing practical applications of eye-tracking data for the evaluation and improvement of language models. His team has created innovative tools for analyzing reader engagement and comprehension that are widely used in educational technology.</p>
+                        <div class="social-links">
+                            <a href="#">Website</a> | 
+                            <a href="#">LinkedIn</a>
+                        </div>
+                        <div class="speaker-talk">
+                            <h4>From Lab to Market: Commercial Applications of Gaze-Enhanced NLP</h4>
+                            <p>This presentation will showcase real-world applications of eye-tracking in natural language processing products, including reading assistants, content optimization tools, and educational technologies, with insights into the challenges and opportunities of bringing this research to market.</p>
+                            <p><strong>Day 2</strong> | May 11, 2025 | 14:00 - 15:00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="speaker-card">
+                    <div class="speaker-image" style="background-image: url('/api/placeholder/350/250');">
+                        <div class="speaker-type">Invited Speaker</div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. Sarah Johnson</h3>
+                        <p class="speaker-title">Associate Professor of Psychology</p>
+                        <p class="speaker-affiliation">University of Technology, Australia</p>
+                        <p class="speaker-bio">Dr. Johnson's research focuses on cross-linguistic differences in reading patterns and their implications for language processing. Her pioneering work with multilingual readers has provided valuable insights into how different writing systems affect eye movements during reading, with important applications for machine translation and literacy development.</p>
+                        <div class="social-links">
+                            <a href="#">Website</a> | 
+                            <a href="#">Twitter</a> | 
+                            <a href="#">Google Scholar</a>
+                        </div>
+                        <div class="speaker-talk">
+                            <h4>Cross-Linguistic Perspectives on Reading: Implications for Multilingual NLP</h4>
+                            <p>Drawing on data from readers of diverse writing systems, this talk will explore how eye movement patterns differ across languages and what these differences can teach us about developing more effective multilingual and cross-lingual NLP models.</p>
+                            <p><strong>Day 1</strong> | May 10, 2025 | 14:00 - 15:00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="speaker-card">
+                    <div class="speaker-image" style="background-image: url('/api/placeholder/350/250');">
+                        <div class="speaker-type">Panel Chair</div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Prof. David Kim</h3>
+                        <p class="speaker-title">Director, Center for Language & Cognition</p>
+                        <p class="speaker-affiliation">National University, Singapore</p>
+                        <p class="speaker-bio">Prof. Kim's interdisciplinary research spans computational linguistics, cognitive science, and human-computer interaction. He has made significant contributions to our understanding of how eye-tracking data can be used to evaluate and improve language models. As the chair of this year's panel discussion, he will facilitate a dialogue on the future of gaze-enhanced NLP.</p>
+                        <div class="social-links">
+                            <a href="#">Website</a> | 
+                            <a href="#">LinkedIn</a> | 
+                            <a href="#">ResearchGate</a>
+                        </div>
+                        <div class="speaker-talk">
+                            <h4>Panel Discussion: The Future of Eye-Tracking in NLP - Challenges and Opportunities</h4>
+                            <p>This panel will bring together experts from academia and industry to discuss the current challenges and future directions for integrating eye-tracking data into NLP research and applications, with a focus on ethical considerations, technical limitations, and emerging opportunities.</p>
+                            <p><strong>Day 3</strong> | May 12, 2025 | 14:00 - 15:30</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Gaze4NLP 2025</h3>
+                <p>The premier workshop on integrating eye-tracking data with natural language processing.</p>
+                <div class="social-icons">
+                    <a href="#"><span>f</span></a>
+                    <a href="#"><span>t</span></a>
+                    <a href="#"><span>in</span></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="call-for-papers.html">Call for Papers</a></li>
+                    <li><a href="schedule.html">Schedule</a></li>
+                    <li><a href="speakers.html">Speakers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Email: info@gaze4nlp2025.org</li>
+                    <li>Phone: +1 (123) 456-7890</li>
+                    <li>Address: Computer Science Department, University Avenue, Cityname</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Gaze4NLP Workshop. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

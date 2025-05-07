@@ -1,101 +1,605 @@
 <!DOCTYPE html>
-<html lang='en'>
-
+<html lang="en">
 <head>
-    <base href=".">
-    <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
-    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
-    <meta name="description" content="Conference Template">
-    <meta name="resource-type" content="document">
-    <meta name="distribution" content="global">
-    <meta name="KeyWords" content="Conference">
-    <title>Conference Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaze4NLP2025 Workshop</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            position: relative;
+        }
+
+
+        .image-container {
+            width: 300px;
+            height: 300px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+    
+    .overlay-text {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: white;
+        font-weight: bold;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        nav ul li a.active {
+            color: var(--accent-color);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .banner {
+    background-image: url('images/varna.jpg'); /* Replace with your actual JPG image path */
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+        
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .banner-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .banner h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .banner p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #777;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .highlight {
+            color: var(--accent-color);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-content h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .card-content p {
+            color: #777;
+            margin-bottom: 1rem;
+        }
+        
+        .info-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .info-box h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .date-item {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        
+        .date {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-right: 1rem;
+            min-width: 100px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #455565;
+            margin-top: 2rem;
+            color: #bbb;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav ul li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            
+            .banner {
+                height: 300px;
+            }
+            
+            .banner h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo"><span>Gaze</span>4<span>NLP</span>2025</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="call-for-papers.html">Call for Papers</a></li>
+                    <li><a href="committees.html">Committees</a></li>
+                    <li><a href="#">Speakers</a></li>
+                    <li><a href="#">Schedule</a></li>
+                </ul>
+            </nav>
+        </div>
 
-    <div class="banner">
-        <img src="assets/banner.jpg" alt="Conference Template Banner">
-        <div class="top-left">
-            <span class="title1">Conference</span><span class="title2">Template</span> <span class="year">2525</span>
+    </header>
+
+    <section class="banner">
+        <div class="banner-content">
+            
+
+            <h2><span class="highlight">Gaze</span>4<span class="highlight">NLP</span>: The First International Workshop on Gaze Data and Natural Language
+Processing</h2>
+            
+             <p>Exploring the Intersection of Eye Tracking and Natural Language Processing</p>
+            <h3>RANLP Workshop • Varna, Bulgaria • September 11-13 | 2025</h3>
+            <div>
+                <a href="call-for-papers.html" class="btn">Submit Paper</a>
+           <!--
+                <a href="#" class="btn btn-outline">View Schedule (TBD)</a>
+           -->
+            </div>
         </div>
-        <div class="bottom-right">
-            June 31, 2525 <br> University Name, and City Maybe
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Welcome to Gaze4NLP 2025</h2>
+                <p>Join us for the premier workshop on integrating eye-tracking data with natural language processing models and applications.</p>
+            </div>
+
+            <div class="grid">
+                <div class="info-box">
+                    <h3>Important Dates</h3>
+                    <div class="date-item">
+                        <div class="date">06 July, 2025</div>
+                        <div>Paper Submission Deadline</div>
+                    </div>
+                    <div class="date-item">
+                        <div class="date">31 July, 2025</div>
+                        <div>Notification of Acceptance</div>
+                    </div>
+                    <div class="date-item">
+                        <div class="date">30 August, 2025</div>
+                        <div>Camera-ready Papers Due</div>
+                    </div>
+                    <div class="date-item">
+                        <div class="date">11-13 September, 2025</div>
+                        <div>Workshop Dates</div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>Workshop Focus</h3>
+                    <p>The Gaze4NLP 2025 workshop aims to bring together researchers and practitioners working at the intersection of eye tracking and natural language processing. By integrating eye movement data with NLP models, we can enhance our understanding of human language processing and improve NLP applications.</p>
+                    <p>Join us for keynote talks, exciting presentations, and networking opportunities.</p>
+                    <a href="about.html" class="btn">Learn More</a>
+                </div>
+
+                
+            </div>
         </div>
+    </section>
+
+
+<section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sponsors</h2>
+               
+            </div>
+
+            <div class="grid">
+                <div class="info-box" >
+                    <h3>MultiplEYE COST Action</h3>
+                     <div class="image-box">
+    <div class="image-container">
+        <a href="https://multipleye.eu" target="_blank"><img src="images/multipleye.png" alt="MultiplEYE COST Action logo"> </a>
+         
     </div>
+</div>
+                </div>
 
-    <table class="navigation">
-        <tr>
-            <td class="navigation">
-                <a class="current" title="Conference Home Page" href=".">Home</a>
-            </td>
-            <td class="navigation">
-                <a title="Register for the Conference" href="registration">Registration</a>
-            </td>
-            <td class="navigation">
-                <a title="Conference Program" href="program">Program</a> 
-            </td>
-            <td class="navigation">
-                <a title="Directions to the Conference" href="directions">Directions</a>
-            </td>
-            <td class="navigation">
-                <a title="Conference Flyer" href="flyer">Flyer</a>
-            </td>
-        </tr>
-    </table>
+                <div class="info-box">
+                    <h3>Become a sponsor</h3>
+                    <p> Email us   gaze4nlp@gmail.com</p>
+                </div>
 
-    <h2>What is This Website?</h2>
-    <p>
-        This website is a template that you could use for a (small) academic conference. 
-        It&rsquo;s got a page for registration, where you can embed a Google Form or some other way for participants to register.
-        It&rsquo;s got a program page to list the schedule for the conference.
-        It&rsquo;s got a directions page to add a bunch of instructions how to get to the conference.
-        It&rsquo;s got a page to put up the flyers and other promotional materials for folks to download.
-    </p>
-    <p>
-        You can use this template by cloning all the files from this
-        <a target="_blank" href="https://github.com/mikepierce/conference-website-template">GitHub repo here</a>.
-        This template was created from a website I made for 
-        <a target="_blank" href="http://math.ucr.edu/~mathconn/">MathConnections 2019</a>,
-        in case you want to see an example of this template being used in the wild.
-    </p>
-    <p>
-        This paragraph is just some filler text to give the homepage some volume:
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dignissim et est et euismod. Fusce et metus tempus, pellentesque ex at, convallis nulla. Ut fringilla commodo tincidunt. Fusce sed est eu massa placerat iaculis eu at mauris. Nullam ut mollis nisi, quis malesuada risus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam ipsum tortor, suscipit non tincidunt vel, bibendum in libero. Nulla facilisi. Pellentesque vitae neque metus. Cras quis est pharetra, vestibulum nisl et, viverra ipsum. Etiam porta dignissim purus, quis tempor metus volutpat eu. Praesent pulvinar libero eget purus tincidunt finibus.
-    </p>
+                
+            </div>
+        </div>
+    </section>
 
-    <h2>Organizers</h2>
-    <p>
-        Here&rsquo;s a good place to list the organizers and sponsors of the conference,
-        as well as list contact information for the organizers,
-        and show off the logos of the sponsors.
-        It looks like his conference was sponsored by kittens!
-    </p>
-    <table class="sponsors">
-        <tr>
-            <td class="sponsor">
-                <a href="http://www.eyebleach.me/">
-                    <img src="assets/kitten1.jpg" alt="First Sponsor Name">
-                </a>
-            </td>
-            <td class="sponsor">
-                <a href="http://www.eyebleach.me/">
-                    <img src="assets/kitten2.jpg" alt="Second Sponsor Name" style="width: 80%">
-                </a>
-            </td>
-            <td class="sponsor">
-                <a href="http://www.eyebleach.me/">
-                    <img src="assets/kitten3.jpg" alt="Third Sponsor Name">
-                </a>
-            </td>
-        </tr>
-    </table>
 
+
+   <!--
+    <section class="section" style="background-color: #f0f4f8;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Workshop Highlights</h2>
+                <p>Explore the key components of our upcoming workshop</p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="card-content">
+                        <h3>Keynote Speakers</h3>
+                        <p>World-renowned experts will share their insights on the latest advances in eye tracking and NLP integration.</p>
+                        <a href="speakers.html" class="btn">View Speakers</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="card-content">
+                        <h3>Paper Presentations</h3>
+                        <p>Researchers will present cutting-edge work on utilizing gaze data to enhance NLP models and applications.</p>
+                        <a href="schedule.html" class="btn">View Schedule</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="card-content">
+                        <h3>Interactive Demos</h3>
+                        <p>Experience hands-on demonstrations of eye-tracking technologies and their applications in NLP research.</p>
+                        <a href="about.html#demos" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Previous Editions</h2>
+                <p>Explore the legacy of Gaze4NLP workshops</p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="card-content">
+                        <h3>Gaze4NLP 2024</h3>
+                        <p>Focused on cognitive models of reading and text comprehension using eye-tracking data.</p>
+                        <a href="#" class="btn">View Proceedings</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="card-content">
+                        <h3>Gaze4NLP 2023</h3>
+                        <p>Highlighted the use of eye-tracking for evaluation and interpretation of large language models.</p>
+                        <a href="#" class="btn">View Proceedings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+-->
     <footer>
-        &copy; Conference Organizers
-        &nbsp;|&nbsp; Design by <a href="https://github.com/mikepierce">Mike Pierce</a>
-    </footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Gaze4NLP 2025</h3>
+                <p>The premier workshop on integrating eye-tracking data with natural language processing.</p>
+               
+<!--
+                <div class="social-icons">
+                    <a href="#"><span>f</span></a>
+                    <a href="#"><span>t</span></a>
+                    <a href="#"><span>in</span></a>
+                </div>
 
+            -->
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="call-for-papers.html">Call for Papers</a></li>
+                    <li><a href="committees.html">Committees</a></li>
+                    <li><a href="#">Speakers</a></li>
+                    <li><a href="#">Schedule</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Email: gaze4nlp@gmail.com</li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Gaze4NLP Workshop. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
-

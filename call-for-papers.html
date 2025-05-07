@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call for Papers - Gaze4NLP2025 Workshop</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            position: relative;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+ 
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        nav ul li a.active {
+            color: var(--accent-color);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .page-header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #777;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .highlight {
+            color: var(--accent-color);
+        }
+        
+        .cfp-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .cfp-box h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .cfp-box p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .cfp-box ul, .cfp-box ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .cfp-box ul li, .cfp-box ol li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .date-list {
+            list-style: none;
+        }
+        
+        .date-list li {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        
+        .date {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-right: 1rem;
+            min-width: 100px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .submission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .submission-box {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .submission-box-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .submission-box-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .submission-box-content {
+            padding: 1.5rem;
+        }
+        
+        .submission-box-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .submission-box-content ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .submission-box-content ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+        
+        .faq-list {
+            margin-top: 3rem;
+        }
+        
+        .faq-item {
+            background-color: white;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--secondary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            border-top: 1px solid #eee;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3rem 0;
+        }
+        .banner {
+    background-image: url('images/varna4.png'); /* Replace with your actual JPG image path */
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}     
+
+.banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #455565;
+            margin-top: 2rem;
+            color: #bbb;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav ul li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+     <header>
+        <div class="header-container">
+            <a href="index.html" class="logo"><span>Gaze</span>4<span>NLP</span>2025</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="call-for-papers.html">Call for Papers</a></li>
+                    <li><a href="committees.html">Committees</a></li>
+                    
+                    <li><a href="#">Speakers</a></li>
+                    <li><a href="#">Schedule</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+      <section class="banner">
+        <div class="banner-content">
+            
+
+            <h2><span class="highlight">Gaze</span>4<span class="highlight">NLP</span>: The First International Workshop on Gaze Data and Natural Language
+Processing</h2>
+            <p>Paper Submission Deadline: 06-July-2025</p>
+             
+            <div>
+                <a href="https://softconf.com/ranlp25/Gaze4NLP2025/" class="btn" target="_blank">Submission Portal</a>
+                 
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+             <div class="cfp-box">
+                <h3>Important Dates</h3>
+                <ul class="date-list">
+                    <li>
+                        <div class="date">06 July, 2025</div>
+                        <div>Paper Submission Deadline</div>
+                    </li>
+                    <li>
+                        <div class="date">31 July, 2025</div>
+                        <div>Notification of Acceptance</div>
+                    </li>
+                    <li>
+                        <div class="date">30 August, 2025</div>
+                        <div>Camera-ready Papers Due</div>
+                    </li>
+                    <li>
+                        <div class="date">11-13 Septmeber, 2025</div>
+                        <div>Workshop Dates</div>
+                    </li>
+                </ul>
+                <p><strong>Note:</strong> All deadlines are 11:59 PM UTC-12:00 ("anywhere on Earth").</p>
+                <br>
+<a href="https://softconf.com/ranlp25/Gaze4NLP2025/" class="btn" target="_blank">Submission Portal</a>
+
+<p style="margin-top: 2rem;"><b>Templates:</b> </p>
+
+ <p style="margin-top: 2rem;">In order to keep compliance with the ACL anthology we require that submitted papers follow strictly the ACL-based template files however please note that the RANLP requirements for paper length are different and you need to comply with what is provided on this page. 
+We use the same templates as the last conference RANLP 2023.
+                </p>
+                
+                
+            
+                <a href="https://ranlp.org/ranlp2023/Templates/ranlp2023-word.docx" class="btn btn-outline">MS Office Template</a>
+                <a href="https://ranlp.org/ranlp2023/Templates/ranlp2023-LaTeX.zip" class="btn btn-outline">Latex Template</a>
+                <a href="https://www.overleaf.com/latex/templates/instructions-for-ranlp-2023-proceedings/dwjrqsgfrrgm" target="_blank" class="btn btn-outline">Latex at Overleaf Template</a>
+
+            </div>
+            
+            <div class="cfp-box">
+                <h3>Submission Guidelines</h3>
+                <p>We invite the following types of submissions:</p>
+                
+                <div class="submission-grid">
+                    <div class="submission-box">
+                        <div class="submission-box-header">
+                            <h3>REGULAR Papers</h3>
+                            <p>Upto 8 pages (excluding references) </p>
+                        </div>
+                        <div class="submission-box-content">
+                            <ul>
+                                <li>Original research contributions</li>
+                                <li>Substantial empirical evaluations</li>
+                                <li>Comprehensive literature reviews</li>
+                                <li>In-depth analyses of gaze data in NLP contexts</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="submission-box">
+                        <div class="submission-box-header">
+                            <h3>SHORT Papers</h3>
+                            <p>Upto 4 pages (excluding references)t</p>
+                        </div>
+                        <div class="submission-box-content">
+                            <ul>
+                                <li>Position papers</li>
+                                <li>Ongoing research</li>
+                                <li>Preliminary results</li>
+                                <li>Demonstration of systems</li>
+                                <li>Dataset descriptions</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                     
+                    </div>
+                </div>
+                
+               
+            
+             
+            
+            <div class="cfp-box">
+                <h3>Reviewing Process</h3>
+                <p>The reviewing process will be blind. The papers must not include the authors’ names and affiliations, neither self-references that reveal the authors’ identity. Please avoid “We previously proved (James, 2025) …”, and use instead citations such as “James previously proved (James 2025)…”. Papers that do not conform with these requirements will be rejected without review.</p>
+            </div>
+            
+            <div class="cfp-box">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Can I submit a paper that has been previously published elsewhere?
+                        </div>
+                        <div class="faq-answer">
+                            <p>No, submissions must be original and should not have been published elsewhere or be under review at another venue at the time of submission.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Is it necessary to include eye-tracking data in my submission?
+                        </div>
+                        <div class="faq-answer">
+                            <p>Not necessarily. We also welcome papers that discuss methodological approaches, theoretical frameworks, or applications related to the integration of eye-tracking and NLP, even if they don't include new eye-tracking data.</p>
+                        </div>
+                    </div>
+                    
+                     
+                     
+                </div>
+            </div>
+            
+            <div class="cfp-box">
+                <h3>Contact Information</h3>
+                <p>For any questions regarding submissions or the workshop, please contact the organizing committee at <strong>gaze4nlp@gmail.com</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Gaze4NLP 2025</h3>
+                <p>The premier workshop on integrating eye-tracking data with natural language processing.</p>
+                <div class="social-icons">
+                    <a href="#"><span>f</span></a>
+                    <a href="#"><span>t</span></a>
+                    <a href="#"><span>in</span></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="call-for-papers.html">Call for Papers</a></li>
+                    <li><a href="committees.html">Committees</a></li>
+                    <li><a href="#">Speakers</a></li>
+                    <li><a href="#">Schedule</a></li>
+                    
+                    
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Email: gaze4nlp@gmail.com</li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Gaze4NLP Workshop. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
