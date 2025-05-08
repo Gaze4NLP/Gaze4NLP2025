@@ -24,6 +24,7 @@
             line-height: 1.6;
             color: #333;
             background-color: #f9f9f9;
+            font-size: 16px;
         }
         
         header {
@@ -33,14 +34,13 @@
             position: relative;
         }
 
-
         .image-container {
-            width: 300px;
-            height: 300px;
+            max-width: 100%;
+            height: auto;
             border: 2px solid #ddd;
             border-radius: 8px;
             padding: 10px;
-            margin: 20px;
+            margin: 10px auto;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -50,36 +50,36 @@
 
         .image-container img {
             max-width: 100%;
-            max-height: 100%;
-            width: auto;
             height: auto;
             object-fit: contain;
             border-radius: 4px;
         }
     
-    .overlay-text {
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        color: white;
-        font-weight: bold;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    }
+        .overlay-text {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
         
         .header-container {
-            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
             padding: 1rem;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
         }
         
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: white;
             text-decoration: none;
+            margin-bottom: 1rem;
+            text-align: center;
         }
         
         .logo span {
@@ -88,11 +88,13 @@
         
         nav ul {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             list-style: none;
         }
         
         nav ul li {
-            margin-left: 1.5rem;
+            margin: 0.5rem;
         }
         
         nav ul li a {
@@ -101,6 +103,7 @@
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
+            font-size: 0.9rem;
         }
         
         nav ul li a:hover {
@@ -122,17 +125,19 @@
         }
         
         .banner {
-    background-image: url('images/varna.jpg'); /* Replace with your actual JPG image path */
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    position: relative;
-}
+            background-image: url('images/varna.jpg');
+            background-size: cover;
+            background-position: center;
+            height: auto;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            padding: 2rem 1rem;
+        }
         
         .banner::before {
             content: '';
@@ -147,31 +152,32 @@
         .banner-content {
             position: relative;
             z-index: 1;
-            max-width: 800px;
-            padding: 2rem;
+            width: 100%;
+            padding: 1rem;
         }
         
-        .banner h1 {
-            font-size: 3rem;
+        .banner h2 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
             color: white;
         }
         
-        .banner p {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+        .banner p, .banner h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
         }
         
         .btn {
             display: inline-block;
             background-color: var(--accent-color);
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             transition: background-color 0.3s;
-            margin: 0.5rem;
+            margin: 0.3rem;
+            font-size: 0.9rem;
         }
         
         .btn:hover {
@@ -188,30 +194,31 @@
         }
         
         .container {
-            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem;
         }
         
         .section {
-            padding: 4rem 0;
+            padding: 2rem 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: var(--secondary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
         
         .section-title p {
             color: #777;
-            max-width: 700px;
+            width: 100%;
             margin: 0 auto;
+            padding: 0 1rem;
         }
         
         .highlight {
@@ -219,9 +226,9 @@
         }
         
         .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
         
         .card {
@@ -230,81 +237,90 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 1rem;
         }
         
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
         
         .card-img {
-            height: 200px;
+            height: 150px;
             background-color: #ddd;
             background-size: cover;
             background-position: center;
         }
         
         .card-content {
-            padding: 1.5rem;
+            padding: 1rem;
         }
         
         .card-content h3 {
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             color: var(--secondary-color);
+            font-size: 1.2rem;
         }
         
         .card-content p {
             color: #777;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
         }
         
         .info-box {
             background-color: white;
             border-radius: 10px;
-            padding: 2rem;
+            padding: 1rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
         
         .info-box h3 {
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             color: var(--secondary-color);
+            font-size: 1.2rem;
         }
         
         .date-item {
             display: flex;
-            margin-bottom: 1rem;
+            flex-direction: column;
+            margin-bottom: 0.8rem;
         }
         
         .date {
             background-color: var(--primary-color);
             color: white;
-            padding: 0.5rem;
+            padding: 0.4rem;
             border-radius: 5px;
-            margin-right: 1rem;
-            min-width: 100px;
+            margin-bottom: 0.5rem;
             text-align: center;
             font-weight: bold;
+            font-size: 0.9rem;
         }
         
         footer {
             background-color: var(--secondary-color);
             color: white;
-            padding: 3rem 0;
+            padding: 2rem 0;
         }
         
         .footer-container {
-            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .footer-col {
+            margin-bottom: 1rem;
         }
         
         .footer-col h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
         }
         
         .footer-col ul {
@@ -312,13 +328,14 @@
         }
         
         .footer-col ul li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
         }
         
         .footer-col ul li a {
             color: #bbb;
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 0.9rem;
         }
         
         .footer-col ul li a:hover {
@@ -326,25 +343,26 @@
         }
         
         .footer-bottom {
-            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem;
             text-align: center;
             border-top: 1px solid #455565;
-            margin-top: 2rem;
+            margin-top: 1rem;
             color: #bbb;
+            font-size: 0.8rem;
         }
         
         .social-icons {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
         }
         
         .social-icons a {
             display: inline-block;
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
@@ -353,33 +371,88 @@
             color: white;
             text-decoration: none;
             transition: background-color 0.3s;
+            font-size: 0.9rem;
         }
         
         .social-icons a:hover {
             background-color: var(--accent-color);
         }
-        
-        @media (max-width: 768px) {
+
+        /* Larger screens */
+        @media (min-width: 768px) {
             .header-container {
-                flex-direction: column;
-                text-align: center;
+                flex-direction: row;
+                justify-content: space-between;
+                max-width: 1200px;
             }
             
-            nav ul {
-                margin-top: 1rem;
+            .logo {
+                margin-bottom: 0;
+                font-size: 1.8rem;
             }
             
             nav ul li {
                 margin-left: 1rem;
-                margin-right: 1rem;
             }
             
             .banner {
-                height: 300px;
+                height: 400px;
             }
             
-            .banner h1 {
-                font-size: 2rem;
+            .banner h2 {
+                font-size: 2.5rem;
+            }
+            
+            .banner p, .banner h3 {
+                font-size: 1.2rem;
+            }
+            
+            .container {
+                max-width: 1200px;
+                padding: 2rem;
+            }
+            
+            .grid {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .info-box, .card {
+                flex: 1 1 calc(50% - 1rem);
+            }
+            
+            .footer-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                max-width: 1200px;
+            }
+            
+            .footer-col {
+                flex: 1 1 calc(33.333% - 1.5rem);
+            }
+            
+            .date-item {
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .date {
+                margin-bottom: 0;
+                margin-right: 1rem;
+                min-width: 100px;
+            }
+        }
+
+        /* Extra large screens */
+        @media (min-width: 1024px) {
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+            
+            .info-box, .card {
+                flex: none;
             }
         }
     </style>
@@ -399,23 +472,15 @@
                 </ul>
             </nav>
         </div>
-
     </header>
 
     <section class="banner">
         <div class="banner-content">
-            
-
-            <h2><span class="highlight">Gaze</span>4<span class="highlight">NLP</span>: The First International Workshop on Gaze Data and Natural Language
-Processing</h2>
-            
-             <p>Exploring the Intersection of Eye Tracking and Natural Language Processing</p>
+            <h2><span class="highlight">Gaze</span>4<span class="highlight">NLP</span>: The First International Workshop on Gaze Data and Natural Language Processing</h2>
+            <p>Exploring the Intersection of Eye Tracking and Natural Language Processing</p>
             <h3>RANLP Workshop • Varna, Bulgaria • September 11-13 | 2025</h3>
             <div>
                 <a href="call-for-papers.html" class="btn">Submit Paper</a>
-           <!--
-                <a href="#" class="btn btn-outline">View Schedule (TBD)</a>
-           -->
             </div>
         </div>
     </section>
@@ -454,78 +519,6 @@ Processing</h2>
                     <p>Join us for keynote talks, exciting presentations, and networking opportunities.</p>
                     <a href="about.html" class="btn">Learn More</a>
                 </div>
-
-                
-            </div>
-        </div>
-    </section>
-
-
-<section class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Sponsors</h2>
-               
-            </div>
-
-            <div class="grid">
-                <div class="info-box" >
-                    <h3>MultiplEYE COST Action</h3>
-                     <div class="image-box">
-    <div class="image-container">
-        <a href="https://multipleye.eu" target="_blank"><img src="images/multipleye.png" alt="MultiplEYE COST Action logo"> </a>
-         
-    </div>
-</div>
-                </div>
-
-                <div class="info-box">
-                    <h3>Become a sponsor</h3>
-                    <p> Email us   gaze4nlp@gmail.com</p>
-                </div>
-
-                
-            </div>
-        </div>
-    </section>
-
-
-
-   <!--
-    <section class="section" style="background-color: #f0f4f8;">
-        <div class="container">
-            <div class="section-title">
-                <h2>Workshop Highlights</h2>
-                <p>Explore the key components of our upcoming workshop</p>
-            </div>
-
-            <div class="grid">
-                <div class="card">
-                    <div class="card-img" style="background-image: url('/api/placeholder/400/200');"></div>
-                    <div class="card-content">
-                        <h3>Keynote Speakers</h3>
-                        <p>World-renowned experts will share their insights on the latest advances in eye tracking and NLP integration.</p>
-                        <a href="speakers.html" class="btn">View Speakers</a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img" style="background-image: url('/api/placeholder/400/200');"></div>
-                    <div class="card-content">
-                        <h3>Paper Presentations</h3>
-                        <p>Researchers will present cutting-edge work on utilizing gaze data to enhance NLP models and applications.</p>
-                        <a href="schedule.html" class="btn">View Schedule</a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img" style="background-image: url('/api/placeholder/400/200');"></div>
-                    <div class="card-content">
-                        <h3>Interactive Demos</h3>
-                        <p>Experience hands-on demonstrations of eye-tracking technologies and their applications in NLP research.</p>
-                        <a href="about.html#demos" class="btn">Learn More</a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -533,47 +526,32 @@ Processing</h2>
     <section class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Previous Editions</h2>
-                <p>Explore the legacy of Gaze4NLP workshops</p>
+                <h2>Sponsors</h2>
             </div>
 
             <div class="grid">
-                <div class="card">
-                    <div class="card-img" style="background-image: url('/api/placeholder/400/200');"></div>
-                    <div class="card-content">
-                        <h3>Gaze4NLP 2024</h3>
-                        <p>Focused on cognitive models of reading and text comprehension using eye-tracking data.</p>
-                        <a href="#" class="btn">View Proceedings</a>
+                <div class="info-box">
+                    <h3>MultiplEYE COST Action</h3>
+                    <div class="image-box">
+                        <div class="image-container">
+                            <a href="https://multipleye.eu" target="_blank"><img src="images/multipleye.png" alt="MultiplEYE COST Action logo"></a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-img" style="background-image: url('/api/placeholder/400/200');"></div>
-                    <div class="card-content">
-                        <h3>Gaze4NLP 2023</h3>
-                        <p>Highlighted the use of eye-tracking for evaluation and interpretation of large language models.</p>
-                        <a href="#" class="btn">View Proceedings</a>
-                    </div>
+                <div class="info-box">
+                    <h3>Become a sponsor</h3>
+                    <p>Email us gaze4nlp@gmail.com</p>
                 </div>
             </div>
         </div>
     </section>
 
--->
     <footer>
         <div class="footer-container">
             <div class="footer-col">
                 <h3>Gaze4NLP 2025</h3>
                 <p>The premier workshop on integrating eye-tracking data with natural language processing.</p>
-               
-<!--
-                <div class="social-icons">
-                    <a href="#"><span>f</span></a>
-                    <a href="#"><span>t</span></a>
-                    <a href="#"><span>in</span></a>
-                </div>
-
-            -->
             </div>
 
             <div class="footer-col">
@@ -592,7 +570,6 @@ Processing</h2>
                 <h3>Contact Us</h3>
                 <ul>
                     <li>Email: gaze4nlp@gmail.com</li>
-                    
                 </ul>
             </div>
         </div>
