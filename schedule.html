@@ -33,18 +33,21 @@
             position: relative;
         }
         .banner {
-    background-image: url('images/varna.jpg'); /* Replace with your actual JPG image path */
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    position: relative;
-}     
-.banner::before {
+            background-image: url('images/varna.jpg');
+            background-size: cover;
+            background-position: center;
+            height: auto;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            padding: 2rem 1rem;
+        }
+        
+        .banner::before {
             content: '';
             position: absolute;
             top: 0;
@@ -52,14 +55,26 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
-        }  
-
+        }
+        
         .banner-content {
             position: relative;
             z-index: 1;
-            max-width: 800px;
-            padding: 2rem;
+            width: 100%;
+            padding: 1rem;
         }
+        
+        .banner h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .banner p, .banner h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
         .header-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -469,21 +484,27 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="about.html" >About</a></li>
                     <li><a href="call-for-papers.html" >Call for Papers</a></li>
                     <li><a href="committees.html">Committees</a></li>
-                    <li><a href="schedule.html">Schedule</a></li>
+                    <li><a href="schedule.html" class="active">Schedule</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-  <section class="banner">
+    <section class="banner">
         <div class="banner-content">
             <h2><span class="highlight">Gaze</span>4<span class="highlight">NLP</span>: The First International Workshop on Gaze Data and Natural Language Processing</h2>
             <p>Exploring the Intersection of Eye Tracking and Natural Language Processing</p>
             <h3>RANLP Workshop • Varna, Bulgaria • September 12 | 2025</h3>
-             
+           
+<!--
+            <div>
+                <a href="call-for-papers.html" class="btn">Submit Paper</a>
+            </div>
+
+        -->
         </div>
     </section>
 
@@ -510,12 +531,119 @@
                     <div class="session">
                         <div class="session-header">
                             <h4>Opening Remarks</h4>
-                            <span class="session-time">09:00 - 09:30</span>
+                            <span class="session-time">09:00 - 09:15</span>
                         </div>
                         <div class="session-content">
                             <p>Welcome to the Gaze4NLP 2025 Workshop by the organizing committee.</p>
                         </div>
+
+
+
+                 
+                 
+                    
+                    <div class="session">
+                        <div class="session-header">
+                            <h4>Session 1: Oculomotor Processing and Eye-Tracking Data</h4>
+                            <span class="session-time">09:15 - 10:45</span>
+                        </div>
+                        <div class="session-content">
+                            <div class="paper">
+                                <div class="paper-title">What determines where readers fixate next? Leveraging NLP to investigate human cognition</div>
+                                <div class="paper-authors">Adrielli Tina Lopes Rego, Joshua Snell and Martijn Meeter</div>
+                                
+                            </div>
+                            
+                            <div class="paper">
+                                <div class="paper-title">Where Patients Slow Down: Surprisal, Uncertainty, and Simplification in French Clinical Reading</div>
+                                <div class="paper-authors">Oksana Ivchenko, Alamgir Munir Qazi and Jamal Abdul Nasir</div>
+                                 
+                            </div>
+                            
+                            <div class="paper">
+                                <div class="paper-title">Predicting Total Reading Time Using Romanian Eye-Tracking Data</div>
+                                <div class="paper-authors">Anamaria Hodivoianu, Oleksandra Kuvshynova, Filip Popovici, Adrian Luca and Sergiu Nisioi</div>
+                              
+                            </div>
+                        </div>
                     </div>
+                    
+                    <div class="break">
+                        <span class="break-type">Coffee Break</span>
+                        <span>10:45 - 11:00</span>
+                    </div>
+                    
+                    <div class="session">
+                        <div class="session-header">
+                            <h4>Session 2: Eye-Tracking Data and Language Models</h4>
+                            <span class="session-time">11:00 - 12:30</span>
+                        </div>
+                        <div class="session-content">
+                            <div class="paper">
+                                <div class="paper-title">Benchmarking Language Model Surprisal for Eye-Tracking Predictions in Brazilian Portuguese</div>
+                                <div class="paper-authors">JDiego Alves</div>
+                                
+                            </div>
+                            
+                            <div class="paper">
+                                <div class="paper-title">Comparing Eye-gaze and Transformer Attention Mechanisms in Reading Tasks</div>
+                                <div class="paper-authors">Maria Mouratidi and Massimo Poesio</div>
+                                
+                            </div>
+                            
+                            <div class="paper">
+                                <div class="paper-title">AlEYEgnment: Leveraging Eye‑Tracking‑while‑Reading to Align Language Models with Human Preferences</div>
+                                <div class="paper-authors">Anna Bondar, David Robert Reich and Lena Ann Jäger</div>
+                                 
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="break">
+                        <span class="break-type">Lunch Break</span>
+                        <span>12:30 - 14:00</span>
+                    </div>
+                    
+                    <div class="session">
+                        <div class="session-header">
+                            <h4>Session 3: Applications</h4>
+                            <span class="session-time">14:00 - 15:30</span>
+                        </div>
+
+<div class="paper">
+                                <div class="paper-title">AEgoDrive: Egocentric Multimodal Driver Behavior Recognition using Project Aria</div>
+                                <div class="paper-authors">Michael Rice, Lorenz Krause and Waqar Shahid Qureshi</div>
+                                 
+                            </div>
+
+                            <div class="paper">
+                                <div class="paper-title">AlEYEgnment: Leveraging Eye‑Tracking‑while‑Reading to Align Language Models with Human Preferences</div>
+                                <div class="paper-authors">Anna Bondar, David Robert Reich and Lena Ann Jäger</div>
+                                 
+                            </div>
+
+                            <div class="paper">
+                                <div class="paper-title">Exploring Mouse Tracking for Reading on Romanian Data</div>
+                                <div class="paper-authors">Cristina Maria Popescu and Sergiu Nisioi</div>
+                                 
+                            </div>
+
+ 
+                    
+                    <div class="special-session">
+                        <h4>Concluding Session: Workshop Summary and Discussion - Future work and roadmaps </h4>
+                        <p><strong>Time:</strong> 15:30 - 17:00</p>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+                    </div>
+
+
+
                     
                     
                     
